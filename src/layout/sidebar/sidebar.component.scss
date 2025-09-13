@@ -24,7 +24,7 @@
   background-color: var(--cell-bg);
   /* Derive a readable foreground by darkening the bg */
   color: color-mix(in srgb, var(--cell-bg), black 30%);
-  min-width: 30px;
+  min-width: 25px;
   aspect-ratio: 1;
   border-radius: 8px;
   padding: 0; /* avoid shifting the icon */
@@ -36,11 +36,22 @@
   display: block;
 }
 
-.project-line {
+/* Title row: keep icon and label perfectly aligned */
+.section-title {
+  line-height: 1; /* avoid extra vertical space around inline elements */
+}
+.section-title lucide-icon {
+  display: inline-flex; /* participate inline with text */
+  vertical-align: middle; /* align to text middle */
+}
+.section-title small {
+  line-height: 1; /* match icon box height */
+}
+
+#areaSelect {
+  font-size: 10px;
   border-radius: 8px;
-  transition: background-color 150ms ease-in-out;
   &:hover {
-    background-color: lighten(rgb(52, 52, 52), 10%);
-    cursor: pointer;
+    background-color: rgb(87, 87, 87);
   }
 }

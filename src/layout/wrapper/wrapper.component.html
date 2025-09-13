@@ -1,4 +1,8 @@
-<div id="main" class="dvh-100 w-100 d-flex flex-column">
+<div
+  id="main"
+  class="dvh-100 w-100 d-flex flex-column"
+  style="overflow: hidden; position: fixed; inset: 0"
+>
   <app-header (toggleSidebar)="onToggleSidebar()"></app-header>
   <div id="content" class="flex-grow-1 bg-danger position-relative">
     <app-sidebar></app-sidebar>

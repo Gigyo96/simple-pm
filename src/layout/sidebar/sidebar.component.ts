@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import {
+  BellIcon,
+  CheckCircleIcon,
+  ChevronDownIcon,
   GlobeIcon,
+  HomeIcon,
   LucideAngularModule,
   LucideIconData,
   LucideIcons,
@@ -17,8 +21,10 @@ import {
 export class SidebarComponent {
   public visible = true;
   PlusIcon = PlusIcon;
-
-  GlobeIcon = GlobeIcon;
+  CheckCircleIcon = CheckCircleIcon;
+  HomeIcon = HomeIcon;
+  BellIcon = BellIcon;
+  ChevronDownIcon = ChevronDownIcon;
 
   toggle() {
     this.visible = !this.visible;

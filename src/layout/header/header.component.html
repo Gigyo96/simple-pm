@@ -1,8 +1,30 @@
-<div id="main" class="text-light d-flex align-items-center p-2 text-small">
-  <button class="btn-flat text-light" (click)="onToggle()">
-    <lucide-icon [img]="MenuIcon" [size]="22"></lucide-icon>
-  </button>
-  <small>ciao</small>
-  <div class="flex-fill"></div>
-  <!-- right side content -->
+<div
+  id="main"
+  class="text-light d-flex justify-content-between align-items-center p-2 text-small"
+>
+  <section class="d-flex flex-row align-items-center gap-2">
+    <button class="btn-flat text-light" (click)="onToggle()">
+      <lucide-icon [img]="MenuIcon" [size]="16"></lucide-icon>
+    </button>
+    <div
+      class="d-flex gap-2 align-items-center rounded rounded-pill p-1 pe-2"
+      id="creaBtnContainer"
+    >
+      <button id="creaBtn">
+        <lucide-icon [img]="PlusIcon" [size]="16"></lucide-icon>
+      </button>
+      <small>Crea</small>
+    </div>
+  </section>
+  <section>
+    <div id="searchBar" class="p-1 px-2 gap-2">
+      <lucide-icon [img]="SearchIcon" [size]="14"></lucide-icon>
+      <input type="text" placeholder="Cerca..." class="flex-fill" />
+    </div>
+  </section>
+  <section class="d-flex gap-1 align-items-center" (click)="toggleMenu()">
+    <app-avatar [size]="'sm'"></app-avatar>
+  </section>
+  <!-- Avatar dropdown menu positioned relative to header bar -->
 </div>
+<div app-avatar-menu [class.visible]="menuVisible" id="avatarMenu"></div>

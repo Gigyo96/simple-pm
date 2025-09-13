@@ -1,0 +1,27 @@
+.avatar {
+  background-color: #3f51b5;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+
+  &.avatar-sm {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+
+  &.avatar-md {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+
+  &.avatar-lg {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+}
