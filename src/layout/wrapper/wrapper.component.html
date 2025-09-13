@@ -1,0 +1,12 @@
+<div id="main" class="dvh-100 w-100 d-flex flex-column">
+  <app-header (toggleSidebar)="onToggleSidebar()"></app-header>
+  <div id="content" class="flex-grow-1 bg-danger position-relative">
+    <app-sidebar></app-sidebar>
+    <div
+      class="content-body h-100 bg-dark text-light p-3"
+      [class.sidebar-collapsed]="isSidebarCollapsed()"
+    >
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

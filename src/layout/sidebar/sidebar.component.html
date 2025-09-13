@@ -1,0 +1,22 @@
+<nav class="sidebar text-white position-absolute p-3" [class.hidden]="!visible">
+  <small
+    class="mb-0 d-flex align-items-center justify-content-between text-light"
+  >
+    PROGETTI
+    <button class="btn-flat btn btn-sm text-light">
+      <lucide-icon [img]="PlusIcon" [size]="16"></lucide-icon>
+    </button>
+  </small>
+
+  <section class="mt-3">
+    @for (p of projects; track $index) {
+
+    <div class="d-flex gap-2 align-items-center project-line pe-1 mb-3">
+      <div class="project-cell" [style.--cell-bg]="p.color">
+        <lucide-icon [img]="p.icon" [size]="20"></lucide-icon>
+      </div>
+      <small class="text-truncate">{{ p.name }}</small>
+    </div>
+    }
+  </section>
+</nav>

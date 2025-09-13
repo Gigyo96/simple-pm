@@ -1,0 +1,46 @@
+:host {
+  display: block;
+}
+
+.sidebar {
+  z-index: 100;
+  width: var(--sidebar-w, 250px);
+  background-color: rgb(52, 52, 52);
+  border-right: 1px solid rgb(87, 87, 87);
+  overflow: hidden;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  transition: left 200ms ease-in-out;
+  &.hidden {
+    left: -250px;
+  }
+}
+
+.project-cell {
+  display: grid;
+  place-items: center;
+  /* Consume bg via CSS var passed from template */
+  background-color: var(--cell-bg);
+  /* Derive a readable foreground by darkening the bg */
+  color: color-mix(in srgb, var(--cell-bg), black 30%);
+  min-width: 30px;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  padding: 0; /* avoid shifting the icon */
+  line-height: 0; /* remove inline baseline space */
+}
+
+/* Ensure the lucide icon doesn't keep inline baseline gap */
+.project-cell lucide-icon {
+  display: block;
+}
+
+.project-line {
+  border-radius: 8px;
+  transition: background-color 150ms ease-in-out;
+  &:hover {
+    background-color: lighten(rgb(52, 52, 52), 10%);
+    cursor: pointer;
+  }
+}

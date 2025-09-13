@@ -1,0 +1,8 @@
+.content-body {
+  height: 100%;
+  margin-left: 250px;
+  transition: margin-left 200ms ease-in-out;
+  &.sidebar-collapsed {
+    margin-left: 0;
+  }
+}
