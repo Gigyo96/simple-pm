@@ -1,0 +1,13 @@
+#sectionRow {
+    #addBtn { display: none; } // hidden by default
+    #moreBtn { display: none; } // hidden by default
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        #addBtn { display: inline-block; } // shown when #sectionRow is hovered
+        #moreBtn { display: inline-block; } // shown when #sectionRow is hovered
+    }
+}
+
+#sectionTitle{
+    cursor: text;
+}

@@ -1,0 +1,17 @@
+<div class="w-100" id="container">
+
+    <section class="w-50 d-flex flex-row align-items-center justify-content-between py-1 pe-2" style="border-right: 1px solid rgba(128, 128, 128, 0.7)">
+        <div class="flex-fill d-flex align-items-center">
+            <button class="btn btn-sm text-light" id="check-circle"><lucide-icon [img]="CheckCircleIcon" [size]="14"></lucide-icon></button>
+            <small contenteditable="true" class="flex-fill p-1" (blur)="task.title = ($any($event.target).textContent || '')">{{ task.title! }}</small>
+        </div>
+        <div>
+            <button class="btn btn-sm text-light btn-flat" id="moveBtn">
+                <lucide-icon [img]="ArrowDownUpIcon" [size]="14"></lucide-icon>
+            </button>
+            <button class="btn btn-sm text-light btn-flat" id="openBtn">
+                <lucide-icon [img]="ChevronRightIcon" [size]="14"></lucide-icon>
+            </button>
+        </div>
+    </section>
+</div>

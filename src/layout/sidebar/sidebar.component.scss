@@ -23,7 +23,7 @@
   /* Consume bg via CSS var passed from template */
   background-color: var(--cell-bg);
   /* Derive a readable foreground by darkening the bg */
-  color: color-mix(in srgb, var(--cell-bg), black 30%);
+  color: color-mix(in srgb, var(--cell-bg), black 50%);
   min-width: 25px;
   aspect-ratio: 1;
   border-radius: 8px;
@@ -51,6 +51,7 @@
 #areaSelect {
   font-size: 10px;
   border-radius: 8px;
+  background-color: rgb(65, 65, 65);
   &:hover {
     background-color: rgb(87, 87, 87);
   }

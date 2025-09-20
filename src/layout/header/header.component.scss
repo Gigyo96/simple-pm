@@ -35,7 +35,7 @@
   background-color: rgb(87, 87, 87);
   border-radius: 8px;
   padding: 0.2em 0.5em;
-  width: 300px;
+  width: 400px;
   input {
     color: white;
     background-color: transparent;
@@ -48,11 +48,11 @@
 
 #avatarMenu {
   position: absolute;
-  z-index: 10;
+  z-index: 1000;
   /* Drop right under the header bar */
   top: 50px;
 
-  right: 0;
+  right: -250px;
   background-color: rgb(52, 52, 52);
   border: 1px solid rgb(87, 87, 87);
   border-top: none;
@@ -61,6 +61,6 @@
   width: 250px;
   transition: right 150ms linear;
   &.visible {
-    right: -250px;
+    right: 0px;
   }
 }

@@ -1,1 +1,8 @@
-<div [class]="'avatar ' + avatarClass">LM</div>
+<div
+  [class]="'avatar ' + avatarClass"
+  [style.backgroundColor]="color"
+  [style.color]="contrastingColor"
+  (click)="onAvatarClick()"
+>
+  {{ initials }}
+</div>

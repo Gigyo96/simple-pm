@@ -1,0 +1,81 @@
+#fieldsHeader{
+    border-top: 1px solid rgba(128, 128, 128, 0.7);;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.7);
+    /* ensure flex children stretch to same height */
+    align-items: stretch;
+
+    small{
+        color: gray;
+    }
+}
+
+
+#otherFields{
+    overflow-x: auto;
+    overflow-y: visible;
+    display: flex;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    border-left: 1px solid rgba(128, 128, 128, 0.7);
+
+    small{
+        color: gray;
+    }
+
+    &::-webkit-scrollbar {
+        height: 0;
+    }
+
+    .field{
+    border-right: 1px solid rgba(128, 128, 128, 0.7);
+    min-width: 100px;
+    font-size: 14px;
+    /* prevent flex children from stretching when we set inline width */
+    flex: 0 0 auto;
+    position: relative;
+    &:hover{
+        background-color: #2c3135;
+    }
+    }
+}
+
+.nameField{
+    width: 50%;
+    /* let the flex parent control height and make sure this item stretches */
+    align-self: stretch;
+    padding-top: 0.5rem; /* match .field p-2 vertical spacing */
+    padding-bottom: 0.5rem;
+    position: relative;
+    min-width: 100px;
+}
+
+.spacer{
+    opacity: 0;
+    position: absolute; /* remove it from parent's stacking/overflow so it won't be clipped */
+    background-color: rgb(182, 182, 182);
+    right: -2.5px; /* adjust to place it where you want relative to the viewport */
+    top: 0;
+    height: 100%;
+    width: 5px;
+    border-radius: 5px;
+    transition: opacity 120ms ease-in-out;
+    &:hover{
+        opacity: 1;
+        cursor: ew-resize;
+    }
+
+    /* vertical line that begins under the spacer and continues downward.
+       Use CSS custom properties set by JS for precise positioning. */
+    &::after{
+        content: '';
+        position: fixed; /* fixed so it appears to continue to infinity as you scroll */
+        left: var(--spacer-left, calc(100% - 2.5px)); /* align with the center of the spacer element */
+        top: var(--spacer-top, 0); /* starting vertical position */
+        width: 1px;
+        height: 100vh; /* stretches to viewport height; fixed positioning makes it persist */
+        background: rgba(128, 128, 128, 1);
+        pointer-events: none; /* don't block pointer interactions */
+        z-index: 100;
+    }
+
+}

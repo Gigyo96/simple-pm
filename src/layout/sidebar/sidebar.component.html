@@ -3,9 +3,16 @@
   [class.hidden]="!visible"
 >
   <section class="d-flex flex-column mb-4">
-    <small class="text-light m-0 ps-1">CONVIVO STUDIO</small>
     <small
-      class="mt-2 d-flex flex-row justify-content-between align-items-center p-1"
+      class="text-light m-0 ps-1 d-flex align-items-center justify-content-between"
+      style="font-size: 14px"
+      >CONVIVO STUDIO
+      <button class="btn-flat btn btn-sm text-light">
+        <lucide-icon [img]="GearIcon" [size]="16"></lucide-icon>
+      </button>
+    </small>
+    <small
+      class="mt-2 d-flex flex-row justify-content-between align-items-center p-2"
       id="areaSelect"
       >REPARTO TECNICO
       <lucide-icon [img]="ChevronDownIcon" [size]="12"></lucide-icon>
@@ -38,7 +45,11 @@
     </small>
     @for (p of projects; track $index) {
 
-    <div class="d-flex gap-2 align-items-center line p-1 mb-1">
+    <div
+      class="d-flex gap-2 align-items-center line p-1 mb-1"
+      [routerLink]="['/project', p.id, 'tasks']"
+      routerLinkActive="active"
+    >
       <div class="project-cell" [style.--cell-bg]="p.color">
         <lucide-icon [img]="p.icon" [size]="15"></lucide-icon>
       </div>

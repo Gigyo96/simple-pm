@@ -1,0 +1,48 @@
+<div class="p-0">
+  <div class="d-flex flex-row align-items-center justify-content-between">
+    <h6 class="mb-0">Syllex</h6>
+
+    <section id="share" class="d-flex gap-2 align-items-center">
+      <div class="d-flex flex-row align-items-center avatar-group">
+        @for(member of projectMembers.slice(0, maxVisible); track $index) {
+        <app-avatar
+          [size]="'sm'"
+          [initials]="member.initials"
+          [color]="member.color"
+          [style.--stack-index]="$index"
+        ></app-avatar>
+        }
+      </div>
+      @if(projectMembers.length > maxVisible) {
+      <small> +{{ projectMembers.length - maxVisible }} </small>
+      }
+      <button class="btn btn-sm btn-primary">
+        <lucide-icon [img]="Share2Icon" [size]="12"></lucide-icon>
+        <small class="ms-1">Condividi</small>
+      </button>
+    </section>
+  </div>
+
+  <div class="d-flex flex-row align-items-center mt-1">
+    @for(view of projectViews; track $index) {
+    <div
+      class="viewVoice py-2"
+      (click)="onViewSelect($index)"
+      [class.active]="activeViewIndex === $index"
+    >
+      <small
+        class="d-flex flex-row align-items-center gap-2 px-2 py-1 btn-flat"
+        [class.active]="activeViewIndex === $index"
+      >
+        <lucide-icon [img]="view.icon" [size]="14"></lucide-icon>
+        {{ view.name }}</small
+      >
+    </div>
+    }
+    <button class="btn-flat text-light btn-sm">
+      <lucide-icon [img]="EllipsisIcon" [size]="14"></lucide-icon>
+    </button>
+  </div>
+  <hr class="mt-0" />
+  <router-outlet></router-outlet>
+</div>

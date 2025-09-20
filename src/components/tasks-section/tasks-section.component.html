@@ -1,0 +1,23 @@
+<div id="sectionRow">
+    <div class="d-flex flex-row align-items-center gap-1">
+        <button class="btn btn-sm text-light">
+            <lucide-icon [img]="ChevronDownIcon" [size]="14"></lucide-icon>
+        </button>
+        <div class="pe-2" contenteditable="true" (blur)="tasksSection.title = ($any($event.target).textContent || '')">{{ tasksSection.title }}</div>
+        <div id="actions">
+            <button class="btn btn-flat btn-sm text-light" id="addBtn">
+                <lucide-icon [img]="PlusIcon" [size]="14"></lucide-icon>
+            </button>
+            <button class="btn btn-flat btn-sm text-light" id="moreBtn">
+                <lucide-icon [img]="EllipsisIcon" [size]="14 "></lucide-icon>
+            </button>
+        </div>
+    </div>
+    <hr class="mt-2 mb-0">
+    <div class="d-flex flex-column">
+        @for(task of tasksSection.tasks || []; track $index;) {
+                <app-task-row [task]="task"></app-task-row>
+        }
+    </div>
+    <hr class="my-0">
+</div>

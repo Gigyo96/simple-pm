@@ -1,0 +1,62 @@
+.avatar-group {
+  /* Ensure avatars sit on one line */
+  white-space: nowrap;
+  /* Tweak these to adjust look per container */
+  --avatar-overlap: 6px; /* visual overlap amount */
+  --avatar-ring-color: #1f1f1f; /* match container background */
+  --avatar-ring-width: 2px; /* separation ring thickness */
+}
+
+.avatar-group app-avatar {
+  position: relative;
+  margin-left: calc(var(--avatar-overlap, 6px) * -1);
+  /* First item (index 0) should be on top. We invert index with a large base. */
+  z-index: calc(100 - (var(--stack-index, 0)));
+}
+
+/* First avatar shouldn't shift left */
+.avatar-group app-avatar:first-child {
+  margin-left: 0;
+}
+
+.viewVoice {
+  position: relative;
+  padding-right: 1px;
+  padding-left: 1px;
+  opacity: 0.6;
+  /* Underline grows from center with a clean, business-like ease */
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background: white;
+    transform-origin: center;
+    transform: translateX(-50%) scaleX(0);
+    /* Use a smooth deceleration curve; no overshoot */
+    transition: transform 220ms cubic-bezier(0.2, 0, 0, 1);
+    will-change: transform;
+  }
+  &:hover {
+    cursor: pointer;
+    opacity: 1;
+    &::after {
+      transform: translateX(-50%) scaleX(1);
+    }
+  }
+  &.active {
+    opacity: 1;
+    &::after {
+      transform: translateX(-50%) scaleX(1);
+    }
+  }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .viewVoice::after {
+    transition-duration: 0ms;
+  }
+}
